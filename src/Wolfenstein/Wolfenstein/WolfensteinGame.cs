@@ -31,8 +31,8 @@ public class WolfensteinGame : Game
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-        _services.AddService(_graphics);
-        _services.AddService(_spriteBatch);
+        _services.AddService<GraphicsDeviceManager>(_graphics);
+        _services.AddService<SpriteBatch>(_spriteBatch);
 
         // TODO: use this.Content to load your game content here
     }

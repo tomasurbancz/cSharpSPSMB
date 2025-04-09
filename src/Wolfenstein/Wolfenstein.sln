@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrawingLayer", "DrawingLayer\DrawingLayer.csproj", "{2EECBC47-59C3-4287-876B-630C36EF40B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App1", "App1\App1.csproj", "{0FCE9719-0927-4389-9868-CA858491DF0D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wolfenstein", "Wolfenstein\Wolfenstein.csproj", "{0FCE9719-0927-4389-9868-CA858491DF0D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
