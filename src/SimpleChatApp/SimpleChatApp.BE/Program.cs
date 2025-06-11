@@ -6,7 +6,24 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddSignalR();
 
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("ReactApp", policy =>
+    {
+        policy
+            .WithOrigins("http://192.168.5.5:5190")
+            .WithOrigins("http://192.168.5.5")
+            .WithOrigins("http://localhost:8080")
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .AllowCredentials(); // Required for SignalR with cookies/auth
+    }); 
+});
+
 var app = builder.Build();
+
+app.UseCors("ReactApp");
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
