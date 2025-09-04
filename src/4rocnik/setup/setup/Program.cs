@@ -6,7 +6,12 @@ namespace setup
     {
         public static void Main(string[] args)
         {
-            new Kalkulacka();
+            Kalkulacka kalkulacka = new Kalkulacka();
+            while (true)
+            {
+                Console.WriteLine("Zadej priklad");
+                Console.WriteLine(kalkulacka.CalculateEquation(Console.ReadLine()));
+            }
         }
         
     }
