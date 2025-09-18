@@ -1,20 +1,13 @@
-using System;
-using System.CodeDom;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using Files.Properties;
-
-namespace Files
+namespace ClassLibrary1
 {
   internal class Program
   {
-    public static void Main(string[] args)
+    public static void Main()
     {
       IFile json = new JsonFile2();
       IFile csv = new CsvFile2();
-      var data = json.Load();
-      csv.Save(data);
+      var data = csv.Load();
+      json.Save(data);
 
       // while (true)
       // {

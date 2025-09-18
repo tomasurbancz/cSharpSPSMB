@@ -1,3 +1,4 @@
+using OopExamples.classes;
 using OopExamples.Interfaces;
 
 namespace OopExamples.Tests;
@@ -11,9 +12,9 @@ public class NewComputerTests
     public NewComputerTests()
     {
         // Create instance of interfaces, using your implementation
-        Computer = null;
-        Person = null;
-        Company = null;
+        Computer = new Computer();
+        Person = new Person();
+        Company = new Company();
         
         // Do not touch this
         Computer = Computer ?? throw new System.NotImplementedException($"{nameof(Computer)} not implemented");

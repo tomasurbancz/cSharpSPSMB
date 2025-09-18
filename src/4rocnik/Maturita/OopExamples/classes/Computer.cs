@@ -13,8 +13,8 @@ public class Computer : IComputer
     public ICase Case { get; set; }
     public IMonitor[] Monitors { get; set; }
     public bool IsOn { get; private set; }
-    public bool IsPersonalPC { get; }
-    public bool IsCompanyPC { get; }
+    public bool IsPersonalPC { get; set; }
+    public bool IsCompanyPC { get; set; }
     
     public void PowerUp()
     {
@@ -40,6 +40,20 @@ public class Computer : IComputer
     public float Compute(string equation)
     {
         return 0;
+    }
+
+    public void ChangeOwner(IEntity? newOwner)
+    {
+        Owner = newOwner;
+        IsPersonalPC = Owner is Person;
+        IsCompanyPC = Owner is Company;
+    }
+
+    public void RemoveOwner()
+    {
+        Owner = null;
+        IsPersonalPC = false;
+        IsCompanyPC = false;
     }
 
     public IComputer BuildNewComputer(IComputerConfiguration configuration)
