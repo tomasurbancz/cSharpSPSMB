@@ -1,8 +1,8 @@
 ﻿using OopExamples.Interfaces;
 
-namespace OopExamples.classes;
+namespace OopExamples.implementations;
 
-public class CPU : ICPU
+public class Case : ICase
 {
     public string Name { get; set; }
 }

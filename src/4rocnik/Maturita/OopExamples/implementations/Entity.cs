@@ -1,8 +1,8 @@
 ﻿using OopExamples.Interfaces;
 
-namespace OopExamples.classes;
+namespace OopExamples.implementations;
 
-public class Case : ICase
+public class Entity : IEntity
 {
     public string Name { get; set; }
 }

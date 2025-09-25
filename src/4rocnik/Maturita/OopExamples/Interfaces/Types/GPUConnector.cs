@@ -1,4 +1,4 @@
-﻿namespace OopExamples.Interfaces;
+﻿namespace OopExamples.Interfaces.Types;
 
 public enum GPUConnector
 {

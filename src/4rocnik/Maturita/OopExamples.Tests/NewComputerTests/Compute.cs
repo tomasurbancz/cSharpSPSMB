@@ -1,8 +1,8 @@
 ﻿using OopExamples.Interfaces.Exceptions;
 
-namespace OopExamples.Tests;
+namespace OopExamples.Tests.NewComputerTests;
 
-public class Compute : NewComputerTests
+public class Compute : Base.NewComputerTests
 {
     [Theory]
     [InlineData("4 + 5", 9)]

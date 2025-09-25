@@ -1,7 +1,8 @@
 ﻿using OopExamples.Interfaces;
 using OopExamples.Interfaces.Exceptions;
+using OopExamples.Interfaces.Types;
 
-namespace OopExamples.classes;
+namespace OopExamples.implementations;
 
 public class GPU : IGPU
 {

@@ -1,8 +1,8 @@
 ﻿using OopExamples.Interfaces;
 
-namespace OopExamples.classes;
+namespace OopExamples.implementations;
 
-public class Entity : IEntity
+public class RAM : IRAM
 {
     public string Name { get; set; }
 }

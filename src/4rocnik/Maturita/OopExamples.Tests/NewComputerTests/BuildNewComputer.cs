@@ -1,8 +1,8 @@
 ﻿using OopExamples.Interfaces.Exceptions;
 
-namespace OopExamples.Tests;
+namespace OopExamples.Tests.NewComputerTests;
 
-public class BuildNewComputer : NewComputerTests
+public class BuildNewComputer : Base.NewComputerTests
 {
     [Fact]
     public void ValidComputer_IsValid()

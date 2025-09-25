@@ -1,6 +1,6 @@
-namespace OopExamples.Tests;
+namespace OopExamples.Tests.NewComputerTests;
 
-public class IsPersonalComputer : NewComputerTests
+public class IsPersonalComputer : Base.NewComputerTests
 {
     [Fact]
     public void NewComputer_IsPersonal_False()

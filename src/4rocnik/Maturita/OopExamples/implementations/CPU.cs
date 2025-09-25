@@ -1,8 +1,8 @@
 ﻿using OopExamples.Interfaces;
 
-namespace OopExamples.classes;
+namespace OopExamples.implementations;
 
-public class RAM : IRAM
+public class CPU : ICPU
 {
     public string Name { get; set; }
 }

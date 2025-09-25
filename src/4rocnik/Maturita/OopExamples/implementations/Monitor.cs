@@ -1,6 +1,7 @@
 ﻿using OopExamples.Interfaces;
+using OopExamples.Interfaces.Types;
 
-namespace OopExamples.classes;
+namespace OopExamples.implementations;
 
 public class Monitor : IMonitor
 {

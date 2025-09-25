@@ -1,6 +1,6 @@
-﻿namespace OopExamples.Tests;
+﻿namespace OopExamples.Tests.NewComputerTests;
 
-public class ValidComputer : NewComputerTests
+public class ValidComputer : Base.NewComputerTests
 {
     
     [Fact]

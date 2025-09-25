@@ -1,6 +1,6 @@
 ﻿using OopExamples.Interfaces;
 
-namespace OopExamples.classes;
+namespace OopExamples.implementations;
 
 public class PowerSupply : IPowerSupply
 {

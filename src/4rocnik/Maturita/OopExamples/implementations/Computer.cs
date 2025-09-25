@@ -1,6 +1,7 @@
 ﻿using OopExamples.Interfaces;
+using OopExamples.Interfaces.Exceptions;
 
-namespace OopExamples.classes;
+namespace OopExamples.implementations;
 
 public class Computer : IComputer
 {
@@ -15,6 +16,11 @@ public class Computer : IComputer
     public bool IsOn { get; private set; }
     public bool IsPersonalPC { get; set; }
     public bool IsCompanyPC { get; set; }
+
+    public Computer()
+    {
+        Monitors = new IMonitor[0];
+    }
     
     public void PowerUp()
     {
@@ -40,10 +46,10 @@ public class Computer : IComputer
     public float Compute(string equation)
     {
         List<string> tokens = null;
-        tokens = Tokenize(equation.Replace(".", ","));
+        tokens = Tokenize(equation.Replace(".", ",").Replace("\n", "").Replace("\t", ""));
         if (tokens.Count != 3)
         {
-            throw new Exception("Špatně zadaný příklad");
+            throw new InvalidEquationException();
         }
 
         float n1 = 0;
@@ -55,7 +61,7 @@ public class Computer : IComputer
         }
         catch (Exception e)
         {
-            throw new Exception("Špatně zadaný příklad");
+            throw new InvalidEquationException();
         }
 
         return Calculate(n1, n2, tokens[1]);
@@ -86,7 +92,8 @@ public class Computer : IComputer
                 return (float) Math.Pow(n1, n2);
             }
         }
-        throw new Exception("Špatně zadaný příkaz");
+
+        throw new InvalidEquationException();
     }
 
     public List<String> Tokenize(string s)

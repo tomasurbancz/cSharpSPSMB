@@ -1,8 +1,8 @@
 ﻿using OopExamples.Interfaces;
 
-namespace OopExamples.classes;
+namespace OopExamples.implementations;
 
-public class MotherBoard : IMotherBoard
+public class Person : IPerson
 {
     public string Name { get; set; }
 }

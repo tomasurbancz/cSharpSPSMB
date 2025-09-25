@@ -1,6 +1,6 @@
-﻿namespace OopExamples.Tests;
+﻿namespace OopExamples.Tests.NewComputerTests;
 
-public class IsNewComputerOn : NewComputerTests
+public class IsNewComputerOn : Base.NewComputerTests
 {
     [Fact]
     public void IsOnReturns_False()

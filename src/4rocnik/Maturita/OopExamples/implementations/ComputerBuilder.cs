@@ -1,7 +1,7 @@
 ﻿using OopExamples.Interfaces;
 using OopExamples.Interfaces.Exceptions;
 
-namespace OopExamples.classes;
+namespace OopExamples.implementations;
 
 public class ComputerBuilder : IComputerBuilder
 {
