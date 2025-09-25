@@ -1,6 +1,6 @@
 ﻿using OopExamples.Interfaces;
 
-namespace OopExamples.implementations;
+namespace OopExamples.Implementations;
 
 public class ComputerConfiguration : IComputerConfiguration
 {

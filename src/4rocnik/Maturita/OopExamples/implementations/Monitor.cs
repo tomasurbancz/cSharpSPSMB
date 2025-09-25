@@ -6,8 +6,12 @@ namespace OopExamples.implementations;
 public class Monitor : IMonitor
 {
     public string Name { get; set; }
-    public GPUConnector Connector { get; }
+    public GPUConnector Connector { get; set;  }
 
+    public Monitor()
+    {
+        
+    }
     public Monitor(string name, GPUConnector connector)
     {
         Name = name;

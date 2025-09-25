@@ -1,8 +1,9 @@
 using System.Reflection;
 using OopExamples.Interfaces;
+using OopExamples.Interfaces.Types;
 using OopExamples.Tests.Extensions;
 
-namespace OopExamples.Tests;
+namespace OopExamples.Tests.Base;
 
 public class NewComputerTests
 {
