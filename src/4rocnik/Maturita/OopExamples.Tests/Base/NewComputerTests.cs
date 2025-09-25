@@ -11,6 +11,7 @@ public class NewComputerTests
 
     public NewComputerTests()
     {
+        // tests
         // Create instance of interfaces, using your implementation
         Computer = new Computer();
         Person = new Person();
