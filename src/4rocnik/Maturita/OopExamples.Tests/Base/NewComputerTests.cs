@@ -1,9 +1,8 @@
 using System.Reflection;
 using OopExamples.Interfaces;
-using OopExamples.Interfaces.Types;
 using OopExamples.Tests.Extensions;
 
-namespace OopExamples.Tests.Base;
+namespace OopExamples.Tests;
 
 public class NewComputerTests
 {
@@ -94,45 +93,50 @@ public class NewComputerTests
     {
         var interfaceType = typeof(T);
 
-        var types = Assembly.GetExecutingAssembly().GetTypes();
+        var assemblies = AppDomain.CurrentDomain.GetAssemblies();
 
-        foreach (var type in types)
+        foreach (var assembly in assemblies)
         {
-            if (type.IsClass &&
-                !type.IsAbstract &&
-                interfaceType.IsAssignableFrom(type) &&
-                type.Namespace != null &&
-                type.Namespace.IndexOf("implementations", StringComparison.OrdinalIgnoreCase) >= 0)
+            var types = assembly.GetTypes();
+
+            foreach (var type in types)
             {
-                try
+                if (type.IsClass &&
+                    !type.IsAbstract &&
+                    interfaceType.IsAssignableFrom(type) &&
+                    type.Namespace != null &&
+                    type.Namespace.IndexOf("implementations", StringComparison.OrdinalIgnoreCase) >= 0)
                 {
-                    // Create instance using parameterless constructor
-                    var instance = Activator.CreateInstance(type);
-                    if (instance == null) continue;
-
-                    if (propertyValues != null)
+                    try
                     {
-                        foreach (var kvp in propertyValues)
-                        {
-                            var prop = type.GetProperty(kvp.Key,
-                                BindingFlags.Instance | BindingFlags.Public | BindingFlags.IgnoreCase);
+                        var instance = Activator.CreateInstance(type);
+                        if (instance == null) continue;
 
-                            if (prop != null && prop.CanWrite)
+                        if (propertyValues != null)
+                        {
+                            foreach (var kvp in propertyValues)
                             {
-                                prop.SetValue(instance, kvp.Value);
+                                var prop = type.GetProperty(kvp.Key,
+                                    BindingFlags.Instance | BindingFlags.Public | BindingFlags.IgnoreCase);
+
+                                if (prop != null && prop.CanWrite)
+                                {
+                                    prop.SetValue(instance, kvp.Value);
+                                }
                             }
                         }
-                    }
 
-                    return instance as T;
-                }
-                catch
-                {
-                    // Ignore exceptions and try next type
+                        return instance as T;
+                    }
+                    catch
+                    {
+                        // Ignore exceptions and try next type
+                    }
                 }
             }
         }
 
-            return null;
-        }
+        return null;
+    }
+
 }
