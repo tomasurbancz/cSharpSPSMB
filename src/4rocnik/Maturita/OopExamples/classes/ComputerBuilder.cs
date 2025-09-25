@@ -31,7 +31,7 @@ public class ComputerBuilder : IComputerBuilder
     public IComputerBuilder AddGPU(IGPU gpu)
     {
         _computer.Gpu = gpu;
-        return this;
+        return this; 
     }
 
     public IComputerBuilder AddRam(IRAM ram)

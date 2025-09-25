@@ -39,7 +39,78 @@ public class Computer : IComputer
 
     public float Compute(string equation)
     {
-        return 0;
+        List<string> tokens = null;
+        tokens = Tokenize(equation.Replace(".", ","));
+        if (tokens.Count != 3)
+        {
+            throw new Exception("Špatně zadaný příklad");
+        }
+
+        float n1 = 0;
+        float n2 = 0;
+        try
+        {
+            n1 = float.Parse(tokens[0]);
+            n2 = float.Parse(tokens[2]);
+        }
+        catch (Exception e)
+        {
+            throw new Exception("Špatně zadaný příklad");
+        }
+
+        return Calculate(n1, n2, tokens[1]);
+    }
+    
+    public float Calculate(float n1, float n2, string s)
+    {
+        switch (s)
+        {
+            case "+":
+            {
+                return n1 + n2;
+            }
+            case "-":
+            {
+                return n1 - n2;
+            }
+            case "*":
+            {
+                return n1 * n2;
+            }
+            case "/":
+            {
+                return n1 / n2;
+            }
+            case "**":
+            {
+                return (float) Math.Pow(n1, n2);
+            }
+        }
+        throw new Exception("Špatně zadaný příkaz");
+    }
+
+    public List<String> Tokenize(string s)
+    {
+        List<String> tokens = new List<String>();
+        string currentToken = "";
+        char[] chars = s.ToCharArray();
+        for (int i = 0; i < chars.Length; i++)
+        {
+            if (chars[i] == ' ')
+            {
+                if (!currentToken.Equals(""))
+                {
+                    tokens.Add(currentToken);
+                    currentToken = "";
+                }
+            }
+            else
+            {
+                currentToken += chars[i];
+            }
+        }
+        if(!currentToken.Equals("")) tokens.Add(currentToken);
+        return tokens;
     }
 
     public void ChangeOwner(IEntity? newOwner)
@@ -58,6 +129,12 @@ public class Computer : IComputer
 
     public IComputer BuildNewComputer(IComputerConfiguration configuration)
     {
-        return new ComputerBuilder().BuildFromConfiguration(configuration);
+        return new ComputerBuilder().AddCase(configuration.Case)
+            .AddCPU(configuration.Cpu)
+            .AddGPU(configuration.Gpu)
+            .AddMotherBoard(configuration.MotherBoard)
+            .AddPowerSupply(configuration.PowerSupply)
+            .AddRam(configuration.Ram)
+            .Build();
     }
 }
