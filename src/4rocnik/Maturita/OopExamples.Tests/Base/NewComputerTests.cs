@@ -54,7 +54,7 @@ public class NewComputerTests
         Company = InstantiateImplementation<ICompany>(
             InitProperties
                 .AddProperty(nameof(ICompany.Owner), 
-                    InstantiateImplementation<IPerson>(InitProperties.AddProperty(nameof(IPerson.Name), "Test Owner")))
+                    InstantiateImplementation<IPerson>(InitProperties))
             );
         
         // For Monitors, create one instance per connector
